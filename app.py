@@ -590,30 +590,24 @@ def championDetails():
 			for i in range(0, len(gold)):
 				mostGold[gold[i]['SummonerName']] = len(gold) - i
 				bestPlayers[gold[i]['SummonerName']] = 0
-				print(gold[i]['SummonerName'] + str(len(gold)-i))
 
 			for i in range(0, len(dObj)):
 				mostDobj[dObj[i]['SummonerName']] = len(dObj) - i
 				bestPlayers[dObj[i]['SummonerName']] = 0
-				print(dObj[i]['SummonerName'] + str(len(dObj)-i))
 
 
 			for i in range(0, len(dCham)):
 				mostDchamp[dCham[i]['SummonerName']] = len(dCham) - i
 				bestPlayers[dCham[i]['SummonerName']] = 0
-				print(dCham[i]['SummonerName'] + str(len(dCham)-i))
 
 			for i in range(0, len(cc)):
 				mostCC[cc[i]['SummonerName']] = len(cc) - i
 				bestPlayers[cc[i]['SummonerName']] = 0
-				print(cc[i]['SummonerName'] + str(len(cc)-i))
 
 			for key in bestPlayers:
 				bestPlayers[key] = mostGold[key] + mostDobj[key] + mostDchamp[key] + mostCC[key]
-				print( key + str(bestPlayers[key]))
 
 			bestPlayerList = sorted(bestPlayers.items(), key = lambda x: x[1], reverse=True)
-			print("it worked")
 			bestPlayerIcon = []
 			if len(bestPlayerList) < 5:
 				maxRange = len(bestPlayerList)
