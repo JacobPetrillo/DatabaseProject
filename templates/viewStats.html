@@ -1,0 +1,73 @@
+<!doctype html>
+<!-- 
+Jacob Petrillo
+6/12/20
+jmp16
+"The program in this file is the individual
+work of Jacob Petrillo"
+-->
+
+<!--This page will be brought up as a result of submitting
+a review entry. It will inform the user if their entry was
+done successfully or not, and provide a link back to the 
+homepage-->
+
+<html>
+	<body>
+	<center>
+	<h1>{{summonerName}}'s Stats
+	<br><img src="static/images/profileicon/{{profileIconID}}.png" width = "150" height = "150"></h1><br>
+	<h2>Compare Champion Averages</h2>
+	<form action="{{url_for('summonerChampionData') }}" method = "POST"><input type ="submit" value = "Search"/>
+	<br><br>
+	<h2>View Performance Over Time</h2>
+	<form action="{{url_for('performanceGraph') }}" method = "POST">
+	<form action="{{url_for('viewStats') }}" method = "POST">
+		<label for ="champion">Select a Champion:</label>
+		<select name="champ" id="champ">
+			<option value="any">Any</option>
+			{% for row in rows1 %}
+			<option value="{{row["Champion"]}}"></option>
+			{% endfor %}
+		</select>
+		<input type="submit" value="Update"></form><br>
+		<label for ="opponent">Select a Opponent Champion:</label>
+		<select name="versus" id="versus">
+			<option value="any">Any</option>
+			{% for row in rows2 %}
+			<option value="{{row["OpponentChampion"]}}"></option>
+			{% endfor %}
+		</select><br><br>
+		<label for ="stat1">Select a Stat to View:</label>
+		<select name="stat1" id="stat1">
+			<option value=""></option>
+			<option value=""></option>
+		</select><br><br>
+		<label for ="stat2">Select a Stat to View:</label>
+		<select name="stat2" id="stat2">
+			<option value=""></option>
+			<option value=""></option>
+		</select><br><br>
+		<label for ="stat3">Select a Stat to View:</label>
+		<select name="stat3" id="stat3">
+			<option value=""></option>
+			<option value=""></option>
+		</select><br><br>
+		<label for ="stat4">Select a Stat to View:</label>
+		<select name="stat4" id="stat4">
+			<option value=""></option>
+			<option value=""></option>
+		</select><br><br>
+
+		<input type="submit" value="View Graph">
+	
+	</form>
+
+
+
+
+
+	<h4><a href = '/'>Back to Home</a></h4>
+	</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!--
+Jacob Petrillo
+Fall 2020
+COP4710
+-->
+
+<!--This will be the homepage for my application "League of Data"
+You will be able to select your region and enter your summoner name
+to search your summoner-->
+
+<html>
+	<body>
+	<center>
+	<h1>League of Data</h1>
+	<form action = "{{url_for('summonerSearch') }}" method = "POST">
+		<br>
+		Search for a Summoner:
+		<input type = "text" name = "Summoner" /></br>
+		<br>
+		<input type = "submit" value = "Search" /></br>
+	</form>
+
+
+
+	</body>
+</html>
+

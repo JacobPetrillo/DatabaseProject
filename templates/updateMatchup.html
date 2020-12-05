@@ -1,0 +1,50 @@
+<!doctype html>
+<!-- 
+Jacob Petrillo
+6/12/20
+jmp16
+"The program in this file is the individual
+work of Jacob Petrillo"
+-->
+
+<!--This page will be brought up as a result of submitting
+a review entry. It will inform the user if their entry was
+done successfully or not, and provide a link back to the 
+homepage-->
+
+<html>
+	<body>
+<form action="{{url_for('updatedMatchup') }}" method = "POST">
+	<input type="radio" id="ch1" name="ch" value="{{opponentChampions[0]}}">
+	<label for="ch1"><img src="/static/images/champion/{{opponentChampions[0]}}.png" width = "64" height = "64"><br>{{opponentChampions[0]}}</label><br><br>
+
+	<input type="radio" id="ch2" name="ch" value="{{opponentChampions[1]}}">
+  	<label for="ch2"><img src="/static/images/champion/{{opponentChampions[1]}}.png" width = "64" height = "64"><br>{{opponentChampions[1]}}</label><br><br>
+
+	<input type="radio" id="ch3" name="ch" value="{{opponentChampions[2]}}">
+  	<label for="ch3"><img src="/static/images/champion/{{opponentChampions[2]}}.png" width = "64" height = "64"><br>{{opponentChampions[2]}}</label><br><br>
+
+	<input type="radio" id="ch4" name="ch" value="{{opponentChampions[3]}}">
+  	<label for="ch4"><img src="/static/images/champion/{{opponentChampions[3]}}.png" width = "64" height = "64"><br>{{opponentChampions[3]}}</label><br><br>
+
+	<input type="radio" id="ch5" name="ch" value="{{opponentChampions[4]}}">
+  	<label for="ch5"><img src="/static/images/champion/{{opponentChampions[4]}}.png" width = "64" height = "64"><br>{{opponentChampions[4]}}</label><br><br>
+  <input type="submit" value="Submit">
+
+	</form>
+
+
+
+
+
+
+
+
+
+
+
+	<br>
+	<h4><a href = '/'>Back to Home</a></h4>
+	</body>
+
+</html>

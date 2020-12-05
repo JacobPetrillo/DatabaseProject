@@ -1,0 +1,43 @@
+
+
+
+<html>
+	<body>
+	<center>
+		<h1>{{summonerName}}
+		<br><img src="static/images/profileicon/{{profileIconID}}.png" width = "150" height = "150"></h1>
+		<form action="{{url_for('recordedGames') }}" method = "POST"><input type ="submit" value = "Recorded Games"/></form>
+
+		<!--<form action="{{url_for('viewStats') }}" method = "POST"><input type ="submit" value = "View Stats"/></form>-->
+
+		<br>
+		<h2>Recent Games</h2>
+	<table border = 1>
+		<thead>
+		<td style="text-align:center">Record/Remove</td>
+		<td style="text-align:center">Game Mode</td>
+		<td style="text-align:center">Champion</td>
+		<td style="text-align:center">K/D/A</td>
+		<td style="text-align:center">CS</td>
+		<td style="text-align:center">Items</td>
+		<td style="text-align:center">Result</td>
+		</thead>
+
+	{% for row in rows %}
+	<tr>
+	<center>
+	<td style="text-align:center"><form action="{{url_for('entryAdded') }}" method = "POST"><button name ="gameID" value = "{{row["GameId"]}}"/>{{row["RecordOrRemove"]}}</button></form></td>
+	<td style="text-align:center">{{row["GameMode"]}}</td>
+	<td style="text-align:center"><img src="/static/images/champion/{{row["Champion"]}}.png" width = "64" height = "64">
+		<br>{{row["Champion"]}}</td>
+	<td style="text-align:center">{{row["KDA"]}}</td>
+	<td style="text-align:center">{{row["CS"]}}</td>
+	<td><img src="/static/images/item/{{row["Item0"]}}.png" width = "64" height = "64"><img src="/static/images/item/{{row["Item1"]}}.png" width = "64" height = "64"><img src="/static/images/item/{{row["Item2"]}}.png" width = "64" height = "64"><img src="/static/images/item/{{row["Item3"]}}.png" width = "64" height = "64"><img src="/static/images/item/{{row["Item4"]}}.png" width = "64" height = "64"><img src="/static/images/item/{{row["Item5"]}}.png" width = "64" height = "64"><img src="/static/images/item/{{row["Item6"]}}.png" width = "64" height = "64"></td>
+	<td style="text-align:center">{{row["Result"]}}</td>
+	</tr>
+	{% endfor %}
+	</table>
+
+	<h4><a href = '/'>Back to home</h4>
+	</body>
+</html>

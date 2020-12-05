@@ -1,0 +1,105 @@
+
+
+
+<html>
+	<body>
+	<center>
+		{% for row in rows %}
+		<h1>Average Stats for {{champion}}
+		<br><img src="static/images/champion/{{champion}}.png" width = "150" height = "150"></h1>
+		<br>
+		<br>
+
+		<h3>Overview</h3>
+	<table border = 1>
+		<thead>
+		<td style="text-align:center">Kills</td>
+		<td style="text-align:center">Deaths</td>
+		<td style="text-align:center">Assists</td>
+		<td style="text-align:center">Minions</td>
+		<td style="text-align:center">Monsters</td>
+		<td style="text-align:center">Final Level</td>
+		<td style="text-align:center">Total Gold</td>
+		
+		</thead>
+
+	<tr>
+	<center>
+	<td style="text-align:center">{{row["Kills"]}}</td>
+	<td style="text-align:center">{{row["Deaths"]}}</td>
+	<td style="text-align:center">{{row["Assists"]}}</td>
+	<td style="text-align:center">{{row["totalMinionsKilled"]}}</td>
+	<td style="text-align:center">{{row["neutralMinionsKilled"]}}</td>
+	<td style="text-align:center">{{row["champLevel"]}}</td>
+	<td style="text-align:center">{{row["goldEarned"]}}</td>
+	</tr>
+	</table>
+	<br>
+		<h3>Objectives</h3>
+	<table border = 1>
+		<thead>
+		<td style="text-align:center">Damage to Objectives</td>
+		<td style="text-align:center">Damage to Turrets</td>
+		<td style="text-align:center">Turret Kills</td>
+		<td style="text-align:center">Inhibitor Kills</td>
+		<td style="text-align:center">Enemy Jungle Taken</td>
+		<td style="text-align:center">Vision Score</td>
+		<td style="text-align:center">Wards Placed</td>
+		<td style="text-align:center">Wards Killed</td>
+		<td style="text-align:center">Control Wards Purchased</td>
+		
+		</thead>
+
+	<tr>
+	<center>
+	<td style="text-align:center">{{row["damageDealtToObjectives"]}}</td>
+	<td style="text-align:center">{{row["damageDealtToTurrets"]}}</td>
+	<td style="text-align:center">{{row["TurretKills"]}}</td>
+	<td style="text-align:center">{{row["inhibitorKills"]}}</td>
+	<td style="text-align:center">{{row["neutralMinionsKilledEnemyJungle"]}}</td>
+	<td style="text-align:center">{{row["visionScore"]}}</td>
+	<td style="text-align:center">{{row["wardsPlaced"]}}</td>
+	<td style="text-align:center">{{row["wardsKilled"]}}</td>
+	<td style="text-align:center">{{row["visionWardsBoughtInGame"]}}</td>
+	</tr>
+	</table>
+
+
+
+	<h3>Combat</h3>
+	<table border = 1>
+		<thead>
+		<td style="text-align:center">Damage Dealt<br>Total/<br>Physical/Magic/True</td>
+		<td style="text-align:center">Damage Dealt to Champions<br>Total/<br>Physical/Magic/True</td>
+		<td style="text-align:center">Damage Taken<br>Total/<br>Physical/Magic/True</td>
+		<td style="text-align:center">Total Healing</td>
+		<td style="text-align:center">Time CCing Others</td>
+		<td style="text-align:center">Multi-kills<br>Double/Triple/Quadra/Penta</td>
+		<td style="text-align:center">Largest Killing Spree</td>
+		
+		</thead>
+
+	<tr>
+	<center>
+	<td style="text-align:center">{{row["totalDamageDealt"]}}/<br>{{row["physicalDamageDealt"]}}/{{row["magicDamageDealt"]}}/{{row["trueDamageDealt"]}}</td>
+	<td style="text-align:center">{{row["totalDamageDealtToChampions"]}}/<br>{{row["physicalDamageDealtToChampions"]}}/{{row["magicDamageDealtToChampions"]}}/{{row["trueDamageDealtToChampions"]}}</td>
+	<td style="text-align:center">{{row["totalDamageTaken"]}}/<br>{{row["physicalDamageTaken"]}}/{{row["magicalDamageTaken"]}}/{{row["trueDamageTaken"]}}</td>
+	<td style="text-align:center">{{row["totalHeal"]}}</td>
+	<td style="text-align:center">{{row["timeCCingOthers"]}}</td>
+	<td style="text-align:center">{{row["doubleKills"]}}/{{row["tripleKills"]}}/{{row["quadraKills"]}}/{{row["pentaKills"]}}</td>
+	<td style="text-align:center">{{row["largestKillingSpree"]}}</td>
+	</tr>
+	</table>
+
+	<br>
+	{% if maxRange >= 5 %}
+	<h3>Best Players</h3>
+	<table border = 2>
+		<td><img src="/static/images/profileicon/{{bestPlayerIcon[0]}}.png" width = "64" height = "64"><br>{{bestPlayers[0][0]}}</td><td><img src="/static/images/profileicon/{{bestPlayerIcon[1]}}.png" width = "64" height = "64"><br>{{bestPlayers[1][0]}}</td><td><img src="/static/images/profileicon/{{bestPlayerIcon[2]}}.png" width = "64" height = "64"><br>{{bestPlayers[2][0]}}</td><td><img src="/static/images/profileIcon/{{bestPlayerIcon[3]}}.png" width = "64" height = "64"><br>{{bestPlayers[3][0]}}</td><td><img src="/static/images/profileIcon/{{bestPlayerIcon[4]}}.png" width = "64" height = "64"><br>{{bestPlayers[4][0]}}</td>
+	</table>
+	{% endif %}
+	{% endfor %}
+
+	<h4><a href = '/'>Back to home</h4>
+	</body>
+</html>
